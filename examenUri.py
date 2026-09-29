@@ -87,7 +87,6 @@ if __name__ == "__main__":
     else:
         print("Imagen no encontrada. Creando imagen aleatoria.")
         imagen = np.random.randint(0, 255, (255, 255, 3), dtype=np.uint8)
-        
 
     imagen_ycbcr = conversion(imagen)
     cv2.imwrite(
@@ -97,3 +96,5 @@ if __name__ == "__main__":
 
     # Mostrar las cuatro imágenes solicitadas.
     show_all_imagen(imagen, imagen_ycbcr)
+    
+    
