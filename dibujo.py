@@ -5,12 +5,27 @@ def linea_recta(c1:tuple[int], c2:tuple[int]) -> list[tuple[int]] | None:
     if len (c1) !=2:
         return
     
-    if (c2 [0] - c1[0]) == 0:
         result = []
-        for y in range(c2[1], c1[1]):
-            result.append((c1[0], y))
-        return result
     
+    if (c2 [0] - c1[0]) == 0:
+        if c2[1] < c1[1]:
+            for y in range(c2[1], c1[1]):
+                result.append((c1[0], y))
+            return result
+        else:
+            for y in range (c2[1], c1[1]):
+                result.append((c1[0], y))
+                return result
+    elif (c2 [1] - c1[1]) == 0:
+        if c2[0] < c1[0]:
+            for x in range(c2[0], c1[0]):
+                result.append((x, c1[1]))
+            return result
+        else:
+            for x in range (c1[0], c2[0]):
+                result.append((x, c1[1]))
+                return result
+            
     m = (c2[1] - c2[1]/(c2[0] - c1[0]))
     b = c2[1] - m*c2[0]
     
@@ -30,7 +45,7 @@ def main() -> None:
     ejec = True
 
     c1 = (int(W/2), int(H/2))
-    c2 = (300, 100)
+    c2 = (300, 300)
 
     # Colores
     blanco = (255, 255, 255)
